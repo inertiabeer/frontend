@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <script>
+
+      function myFn(data){
+    		alert(data+' hello');
+    	}
+
+
+    	function addjsonp(src)
+    	{
+    		var script=document.createElement("script");
+    		script.setAttribute('src',src);
+    		document.body.appendChild(script);
+    	}
+    	addjsonp('http://localhost:3000/jsonp?callback=myFn')
+    </script>
+  </body>
+</html>
