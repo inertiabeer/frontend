@@ -32,7 +32,7 @@
 
 先约定函数名为myFn,然后在jsonptest中写入
 
-![https://github.com/inertiabeer/frontend/img/hello.png]()
+![https://github.com/inertiabeer/frontend/master/img/hello.png]()
 
 `  function myFn(data){	alert(data+' hello');	}`
 
