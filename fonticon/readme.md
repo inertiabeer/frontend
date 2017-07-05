@@ -8,7 +8,7 @@
 
 具体还是要看业务逻辑的，先上一波我的字体图标使用样例
 
-[http://139.199.206.187:4000/]: http://139.199.206.187:4000/
+http://139.199.206.187:4000/
 
 
 
@@ -18,7 +18,7 @@
 
 首先要做的是找一个好用的免费图标库，网上有非常多的这些内容，可以用阿里的或者icomoon网站上的，这个样例中我用的是iconmoon
 
-[icomoon]: https://icomoon.io/app/#/select
+https://icomoon.io/app/#/select
 
 ![](http://oskgzfrtt.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-05%20%E4%B8%8A%E5%8D%8810.29.45.png)
 
@@ -42,9 +42,7 @@ css3中允许自定义字体，放在服务器上，用户从服务器上获取�
 
 这里的src涉及到不同浏览器对字体的兼容性。有一篇博客写的很详细
 
-
-
-[字体介绍]: http://www.cnblogs.com/lhb25/archive/2011/02/10/1950473.html
+http://www.cnblogs.com/lhb25/archive/2011/02/10/1950473.html
 
 
 
