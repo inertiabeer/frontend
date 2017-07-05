@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>树形组件</title>
+</head>
+<body>
+<div id="map"></div>
+<script>
+		var nodes=[{name:'父节点1',children:[{name:'子节点1'},{name:'子节点2'}]},{name:'父节点2',children:[{name:'子节点4',children:[{name:'子节点5'}]},{name:'子节点6'}]}];
+		function tree(data)
+		{
+			this.data=data;
+			this.docFrag=document.createDocumentFragment();
+
+
+
+		}
+        
+		tree.prototype.render=function(data)
+		{
+			var str="";
+			var that=this;
+			var ul=document.createElement('ul');
+			function showChildren(obj)
+
+			{   
+				let c_that=obj;
+				if(obj.getAttribute('children'))//这里面判断有没有children属性
+				{
+					console.log(obj.children);
+					if(obj.children.length==0){//判断有没有children节点
+					 let children=JSON.parse(obj.getAttribute('children'));
+		             let c_ul=document.createElement('ul');
+		             children.forEach(function(item,index){
+			         let li=document.createElement('li');
+			         let textnode=document.createTextNode(item.name);
+			          if(item.children)
+			        {
+			  	      li.setAttribute('children',JSON.stringify(item.children));
+			        }
+			        li.appendChild(textnode);
+			        c_ul.appendChild(li);
+
+		            });
+		            obj.appendChild(c_ul);
+
+				     }
+
+				  else
+				  {
+					for(;obj.children.length!=0;)
+					{
+						obj.removeChild(obj.children[0]);//如果已经显示了，就让他消失
+					}
+					
+				  }
+			   }
+			   
+
+		     
+
+			}
+
+			data.forEach(function(item,index){
+				if(item.hasOwnProperty('children'))
+				{
+					let li=document.createElement('li');
+					let textnode=document.createTextNode(item.name);
+					li.appendChild(textnode);
+					li.setAttribute('children',JSON.stringify(item.children));
+					// li.addEventListener('click',showChildren(li));
+					//这里面因为还没有加载dom上，所以没办法添加事件。
+					console.log(ul);console.log(li);
+					ul.appendChild(li);
+
+
+
+
+
+				}
+			});
+			that.docFrag.appendChild(ul);
+			document.getElementById('map').appendChild(that.docFrag);
+			map.addEventListener('click',function(e){
+				if(e.target.tagName='li')
+				{
+					showChildren(e.target);//事件委托
+				}
+			})
+
+		}
+		var tree1=new tree(nodes);
+		tree1.render(tree1.data);
+
+
+
+</script>
+</body>
+</html>
